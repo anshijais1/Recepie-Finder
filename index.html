@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body{
+        margin: 0;
+        padding: 0;
+    
+    }
+    .divlast{
+        background-color: rgb(124, 154, 195);
+        color: grey;
+        font-size: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 55px;
+        height: 45px
+        
+    }
+    .div{
+       height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height:100%;
+        background-image: url("background.jpg");
+    }
+    #background{
+        width: 100%;
+     
+        filter: contrast(45%);
+        position: relative;
+    }
+    .main{
+        width: 90%;
+       min-height:100%;
+        background-color: white;
+    }
+    .nav{
+    width: 189.56vh;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    }
+    .div1{
+        display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    }
+    #logo{
+        width: 130px;
+        height: 108px;
+        margin: 17px;;
+    }
+    #hunt{
+    color: rgb(26, 2, 2);
+    font-size: 35px;
+    text-shadow:
+    1px 1px 1px rgb(49, 47, 47);
+    font-family: 'Times New Roman', Times, serif;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        font-size: 17px;
+        color: black;
+    }
+    nav{
+        margin-right: 55px;
+    }
+    #hero1{
+        width: 95vh;
+        height: 58vh;
+        margin: 45px;
+        border-radius: 0.5rem;
+    }
+ 
+    .hero{
+        display: flex;
+    flex-direction: row;
+   
+    }
+    #input{
+        width: 75vh;
+        height: 11px;
+        border:1px solid grey;
+        border-radius: 1.1rem;
+        margin: 38px;
+        padding: 15px;
+        font-size: 15px;
+    }
+    .search{
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+    .what{
+        font-size: 35px;
+         margin-left: 25px;
+        width: 585px;
+        font-family: 'Times New Roman', Times, serif;
+        font-style: italic;
+        font-weight: 300;
+        
+    }
+    .plate{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    #plate{
+        width: 35vh;
+        height: 35vh;
+    }
+    #plate:hover{
+    cursor: pointer;
+    scale: 1.1;
+    }
+    #plate3:hover{
+    cursor: pointer;
+    scale: 1.1;
+    }
+    #plate1:hover{
+    cursor: pointer;
+    scale: 1.1;
+    }
+    .plating{
+     
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 35vh;
+        height: 35vh;
+        gap: 55px;
+        padding: 25px;
+        margin-left: 35px;
+    }
+    #plate1{
+        width: 35vh;
+        height: 35vh;
+        border-radius: 0.5rem;
+        margin: 45px;
+        display: flex;
+        justify-content: space-between;
+    }
+    #head3{
+        margin-left: 45px;
+        font-size: 35px;
+
+    }
+    #plate3{
+border-radius: 7rem;
+width: 17vh;
+        height: 17vh;
+
+    }
+    #party{
+        position: relative;
+        width:50%;
+        height: 395px;
+    }
+    #party1{
+        position: absolute;
+        width:100%;
+        height: 155px;
+    }
+    .abso{
+        position: absolute;
+        font-size: 55px;
+        margin: 15px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .party{
+        display: flex;
+        flex-direction: row;
+    }
+    #party:hover{
+        cursor: pointer;
+       
+
+    }
+    </style>
+</head>
+<body>
+    <div class="div">
+        
+
+        <div class="main">
+            <div class="nav">
+                <div class="div1"> <img id="logo" src="recipe-logo-10.jpg" alt="">
+                    <h1 id="hunt">Recepie Hunt!</h1></div>
+               
+                <nav id="nav">
+                    <a href="#">Home</a> |
+                    <a href="#">Interview</a> |
+                    <a href="#">Languages</a> |
+                    <a href="#">Data Structure</a> |
+                    <a href="#">Algorithm</a>
+                </nav>
+            </div>
+
+<div class="hero"><img id="hero1" src="herp1.jpg" alt="">
+    <div class="search"><input id="input" type="text" placeholder="Search any Recepi via ingredient, taste etc"> 
+        <button id="button">Select</button>
+        <div class="what"><h1 id="what">"A Recipie has no soul we bring soul to the recepie!"</h1></div>
+    </div>
+  </div>
+  <h3 id="head3">What's on your mind!</h3>
+  <div class="plate"><img id="plate" src="Pizza.avif" alt="">
+
+    <img id="plate" src="Biryani_2.avif" alt="">
+    <img id="plate" src="Burger.avif" alt="">
+    <img id="plate" src="Chole_Bature.avif" alt="">
+              <img id="plate" src="Rolls.avif" alt=""> 
+    </div>
+    <br>
+<h3 id="head3">Best of our Recipies! </h3>
+<div class="plate"><img id="plate1" src="dal.avif" alt="">
+<img id="plate1" src="dosa.avif" alt="">
+<img id="plate1" src="cold.avif" alt="">
+<img id="plate1" src="homestyle.avif" alt=""></div>
+    <br>  
+       
+<h3 id="head3">Kuch Meetha ho jaye!</h3>
+<div class="plating"><img id="plate3" src="desert.jpeg" alt="">
+<img id="plate3" src="cake.jpeg" alt="">
+<img id="plate3" src="1.jpeg" alt="">
+<img id="plate3" src="th.jpeg" alt="">
+<img id="plate3" src="th (1).jpeg" alt="">
+<img id="plate3" src="th (2).jpeg" alt="">
+<img id="plate3" src="th (3).jpeg" alt="">
+</div>
+<div class="party"><img id="party" src="Banner-Final-1-1503x576.jpg" alt="">
+<img id="party" src="th (5).jpeg" alt=""></div>
+</div>
+
+</div>
+<div class="divlast"><a href="">Terms and Conditions  </a>  <a href="">Services</a>  <a href=""> Team </a>  <a href="">Contact</a>  </div>
+
+<script src="app.js"></script>
+   
+       
+       
+    
+   
+</body>
+</html>
