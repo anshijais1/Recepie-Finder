@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Search</title>
+</head>
+<body>
+    <h1>Meal Search</h1>
+
+    <label for="input">Enter Ingredient:</label>
+    <input type="text" id="input" placeholder="e.g., Chicken">
+    <button id="button">Search</button>
+
+    <div id="recipeDetails"></div>
+
+    <script>
+        let button = document.querySelector("#button");
+        button.addEventListener("click", async (evt) => {
+            let inp = document.querySelector("#input");
+            let val = inp.value;
+            console.log(val);
+            console.log("Hello");
+
+            let url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${val}`;
+            let response = await fetch(url);
+            console.log(response);
+
+            let data = await response.json();
+            console.log(data);
+
+            const recipeDetailsContainer = document.getElementById('recipeDetails');
+            recipeDetailsContainer.innerHTML = ''; // Clear previous results
+
+            if (data.meals && data.meals.length > 0) {
+                const meal = data.meals[0];
+                const mealId = meal.idMeal;
+
+                let recipeUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+                let recipeResponse = await fetch(recipeUrl);
+                let recipeData = await recipeResponse.json();
+                console.log(recipeData);
+
+                const mealDetails = recipeData.meals[0];
+
+                const recipeTitle = document.createElement('h3');
+                recipeTitle.textContent = mealDetails.strMeal;
+                recipeDetailsContainer.appendChild(recipeTitle);
+
+                const recipeImage = document.createElement('img');
+                recipeImage.src = mealDetails.strMealThumb;
+                recipeImage.alt = mealDetails.strMeal;
+                recipeDetailsContainer.appendChild(recipeImage);
+
+                const ingredientsList = document.createElement('ul');
+                for (let i = 1; i <= 20; i++) {
+                    const ingredient = mealDetails[`strIngredient${i}`];
+                    const measure = mealDetails[`strMeasure${i}`];
+
+                    if (ingredient && measure) {
+                        const ingredientItem = document.createElement('li');
+                        ingredientItem.textContent = `${ingredient}: ${measure}`;
+                        ingredientsList.appendChild(ingredientItem);
+                    }
+                }
+                recipeDetailsContainer.appendChild(ingredientsList);
+
+                const recipeInstructions = document.createElement('p');
+                recipeInstructions.textContent = mealDetails.strInstructions;
+                recipeDetailsContainer.appendChild(recipeInstructions);
+            } else {
+                // Handle the case where no meals are found for the given ingredient
+                const noResultsMessage = document.createElement('p');
+                noResultsMessage.textContent = 'No meals found for the given ingredient.';
+                recipeDetailsContainer.appendChild(noResultsMessage);
+            }
+        });
+    </script>
+</body>
+</html>
+
+

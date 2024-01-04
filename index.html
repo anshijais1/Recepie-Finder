@@ -125,6 +125,38 @@
     cursor: pointer;
     scale: 1.1;
     }
+    #platepizza{
+        width: 35vh;
+        height: 35vh;
+    }
+    #platepizza:hover{
+    cursor: pointer;
+    scale: 1.1;
+    }
+    #platebiryani{
+        width: 35vh;
+        height: 35vh;
+    }
+    #platebiryani:hover{
+    cursor: pointer;
+    scale: 1.1;
+    }
+    #platechole{
+        width: 35vh;
+        height: 35vh;
+    }
+    #platechole:hover{
+    cursor: pointer;
+    scale: 1.1;
+    }
+    #plateburger{
+        width: 35vh;
+        height: 35vh;
+    }
+    #plateburger:hover{
+    cursor: pointer;
+    scale: 1.1;
+    }
     #plate3:hover{
     cursor: pointer;
     scale: 1.1;
@@ -188,6 +220,23 @@ width: 17vh;
        
 
     }
+    .hide{
+        width: 0;
+        height: 0;
+        background-color: aqua;
+    }
+    #button{
+        width: 75px;
+        height: 35px;
+        padding: 5px;
+        background-color: rgb(50, 12, 48);
+        color: bisque;
+        border-radius: 5px;
+        margin-left: 16vw;
+    }
+    #heading1{
+        color: blue;
+    }
     </style>
 </head>
 <body>
@@ -211,15 +260,16 @@ width: 17vh;
 <div class="hero"><img id="hero1" src="herp1.jpg" alt="">
     <div class="search"><input id="input" type="text" placeholder="Search any Recepi via ingredient, taste etc"> 
         <button id="button">Select</button>
+        <div class="hide"></div>
         <div class="what"><h1 id="what">"A Recipie has no soul we bring soul to the recepie!"</h1></div>
     </div>
   </div>
   <h3 id="head3">What's on your mind!</h3>
-  <div class="plate"><img id="plate" src="Pizza.avif" alt="">
+  <div class="plate"><img id="platepizza"  src="Pizza.avif" alt="">
 
-    <img id="plate" src="Biryani_2.avif" alt="">
-    <img id="plate" src="Burger.avif" alt="">
-    <img id="plate" src="Chole_Bature.avif" alt="">
+    <img id="platebiryani" src="Biryani_2.avif" alt="">
+    <img id="plateburger" src="Burger.avif" alt="">
+    <img id="platechole" src="Chole_Bature.avif" alt="">
               <img id="plate" src="Rolls.avif" alt=""> 
     </div>
     <br>
@@ -253,4 +303,4 @@ width: 17vh;
     
    
 </body>
-</html>
+</html> 

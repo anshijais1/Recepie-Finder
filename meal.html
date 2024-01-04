@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal API Client</title>
+</head>
+<body>
+    <h1>Meal API Client</h1>
+
+    <h2>Meals</h2>
+    <ul id="mealList"></ul>
+
+    <h2>Add New Meal</h2>
+    <form id="addMealForm">
+        <label for="mealName">Meal Name:</label>
+        <input type="text" id="mealName" required>
+        <button type="submit">Add Meal</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to fetch and display meals
+            const fetchMeals = async () => {
+                const response = await fetch('http://localhost:3000/api/meals');
+                const meals = await response.json();
+
+                const mealList = document.getElementById('mealList');
+                mealList.innerHTML = '';
+
+                meals.forEach(meal => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = meal.name;
+                    mealList.appendChild(listItem);
+                });
+            };
+
+            // Function to add a new meal
+            const addMeal = async (name) => {
+                const response = await fetch('http://localhost:3000/api/meals', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name }),
+                });
+
+                if (response.ok) {
+                    fetchMeals(); // Refresh the meal list after adding a new meal
+                } else {
+                    console.error('Failed to add meal');
+                }
+            };
+
+            // Event listener for the add meal form
+            const addMealForm = document.getElementById('addMealForm');
+            addMealForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const mealNameInput = document.getElementById('mealName');
+                const mealName = mealNameInput.value.trim();
+
+                if (mealName !== '') {
+                    addMeal(mealName);
+                    mealNameInput.value = '';
+                }
+            });
+
+            // Initial fetch to display meals when the page loads
+            fetchMeals();
+        });
+    </script>
+</body>
+</html>

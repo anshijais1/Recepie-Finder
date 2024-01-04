@@ -1,0 +1,46 @@
+<!-- recipe.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+</head>
+<body>
+    <h1>Recipe Details</h1>
+
+    <div id="recipeDetails"></div>
+
+    <script>
+        // Retrieve recipe details from localStorage
+        const storedRecipe = localStorage.getItem('selectedRecipe');
+        if (storedRecipe) {
+            const { mealId, mealDetails, ingredientsListHTML } = JSON.parse(storedRecipe);
+
+            const recipeDetailsContainer = document.getElementById('recipeDetails');
+
+            const recipeTitle = document.createElement('h3');
+            recipeTitle.textContent = mealDetails.strMeal;
+            recipeDetailsContainer.appendChild(recipeTitle);
+
+            const recipeImage = document.createElement('img');
+            recipeImage.src = mealDetails.strMealThumb;
+            recipeImage.alt = mealDetails.strMeal;
+            recipeDetailsContainer.appendChild(recipeImage);
+
+            const ingredientsList = document.createElement('ul');
+            ingredientsList.innerHTML = ingredientsListHTML;
+            recipeDetailsContainer.appendChild(ingredientsList);
+
+            const recipeInstructions = document.createElement('p');
+            recipeInstructions.textContent = mealDetails.strInstructions;
+            recipeDetailsContainer.appendChild(recipeInstructions);
+        } else {
+            // Handle the case where no recipe details are found
+            const noRecipeMessage = document.createElement('p');
+            noRecipeMessage.textContent = 'No recipe details found.';
+            document.body.appendChild(noRecipeMessage);
+        }
+    </script>
+</body>
+</html>
